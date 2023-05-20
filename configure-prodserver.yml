@@ -13,7 +13,7 @@
     command: sudo systemctl start docker
     
   - name: To remove existing insure-me container
-    command: sudo docker rm -f insure-me 
+    command: sudo docker rm -f my-insure 
 
   - name: Deploy Docker Container
     command: docker run -itd -p 8081:8081 --name my-insure krishna21290/insure-me:1.0

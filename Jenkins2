@@ -1,0 +1,25 @@
+    
+    stage('Code Checkout') { 
+        
+        git 'https://github.com/Bhaskara212/insurance-project-demo.git'
+        
+    }
+    
+    stage('Build the Code') { 
+        
+        sh 'mvn clean package'
+        
+    }
+    stage('Run to jar file') { 
+        
+        sh 'java -jar my-insure-test.jar'
+        
+    }
+  
+    stage('Build the Code') { 
+        
+       publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, includes: 'screenshot.png', keepAll: false, reportDir: '/var/lib/jenkins/workspace/Test-job/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+        
+    }
+    
+}

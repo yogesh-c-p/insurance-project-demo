@@ -1,9 +1,0 @@
-node {
-    stage('Code Checkout') { 
-        git 'https://github.com/Bhaskara212/insurance-project-demo.git' 
-    }
-    stage('configure the test-server deploy insure-me'){   
-        ansiblePlaybook become: true, credentialsId: 'sshkey-ansible', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-prodserver.yml'
-    }
-    }
-      
